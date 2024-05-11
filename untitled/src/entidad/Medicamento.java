@@ -7,6 +7,7 @@ public class Medicamento {
         this.nombre = nombre;
     }
 
+    // Getters y setters
     public String getNombre() {
         return nombre;
     }

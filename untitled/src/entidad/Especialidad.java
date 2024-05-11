@@ -7,6 +7,7 @@ public class Especialidad {
         this.nombre = nombre;
     }
 
+    // Getters y setters
     public String getNombre() {
         return nombre;
     }

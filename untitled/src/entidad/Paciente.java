@@ -9,16 +9,17 @@ public class Paciente {
         this.obraSocial = obraSocial;
     }
 
+    // Getters y setters
     public String getNombre() {
         return nombre;
     }
 
-    public ObraSocial getObraSocial() {
-        return obraSocial;
-    }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public ObraSocial getObraSocial() {
+        return obraSocial;
     }
 
     public void setObraSocial(ObraSocial obraSocial) {

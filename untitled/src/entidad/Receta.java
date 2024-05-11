@@ -8,6 +8,7 @@ public class Receta {
         this.medicamentos = medicamentos;
     }
 
+    // Getters y setters
     public List<Medicamento> getMedicamentos() {
         return medicamentos;
     }
