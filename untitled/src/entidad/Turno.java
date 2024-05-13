@@ -4,12 +4,12 @@ import java.util.List;
 public class Turno {
     private Paciente paciente;
     private Medico medico;
-    private boolean recetaGenerada;
+    private String fecha;
 
-    public Turno(Paciente paciente, Medico medico) {
+    public Turno(Paciente paciente, Medico medico, String fecha) {
         this.paciente = paciente;
         this.medico = medico;
-        this.recetaGenerada = false;
+        this.fecha = fecha;
     }
 
     // Getters y setters
@@ -29,11 +29,11 @@ public class Turno {
         this.medico = medico;
     }
 
-    public boolean isRecetaGenerada() {
-        return recetaGenerada;
+    public String getFecha() {
+        return fecha;
     }
 
-    public void setRecetaGenerada(boolean recetaGenerada) {
-        this.recetaGenerada = recetaGenerada;
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 }

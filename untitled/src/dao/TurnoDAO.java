@@ -1,17 +1,17 @@
 package dao;
 
 import entidad.Turno;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
-class TurnoDAO {
-    private List<Turno> turnos = new ArrayList<>();
+public class TurnoDAO {
+    private Map<Integer, Turno> turnos;
 
-    public void agregarTurno(Turno turno) {
-        turnos.add(turno);
+    public TurnoDAO() {
+        this.turnos = new HashMap<>();
     }
 
-    public List<Turno> getTurnos() {
-        return turnos;
+    public void agregarTurno(Turno turno) {
+        turnos.put(turnos.size() + 1, turno);
     }
 }

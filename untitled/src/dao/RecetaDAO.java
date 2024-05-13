@@ -6,14 +6,14 @@ import entidad.Turno;
 import java.util.HashMap;
 import java.util.Map;
 
-class RecetaDAO {
-    private Map<Turno, Receta> recetas = new HashMap<>();
+public class RecetaDAO {
+    private Map<Integer, Receta> recetas;
 
-    public void agregarReceta(Turno turno, Receta receta) {
-        recetas.put(turno, receta);
+    public RecetaDAO() {
+        this.recetas = new HashMap<>();
     }
 
-    public Receta buscarReceta(Turno turno) {
-        return recetas.get(turno);
+    public void agregarReceta(Receta receta) {
+        recetas.put(recetas.size() + 1, receta);
     }
 }

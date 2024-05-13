@@ -5,14 +5,18 @@ import entidad.ObraSocial;
 import java.util.HashMap;
 import java.util.Map;
 
-class ObraSocialDAO {
-    private Map<String, ObraSocial> obraSociales = new HashMap<>();
+public class ObraSocialDAO {
+    private Map<String, ObraSocial> obrasSociales;
 
-    public void agregarObraSocial(ObraSocial obraSocial) {
-        obraSociales.put(obraSocial.getNombre(), obraSocial);
+    public ObraSocialDAO() {
+        this.obrasSociales = new HashMap<>();
     }
 
-    public ObraSocial buscarObraSocial(String nombre) {
-        return obraSociales.get(nombre);
+    public void agregarObraSocial(ObraSocial obraSocial) {
+        obrasSociales.put(obraSocial.getNombre(), obraSocial);
+    }
+
+    public ObraSocial obtenerObraSocialPorNombre(String nombre) {
+        return obrasSociales.get(nombre);
     }
 }

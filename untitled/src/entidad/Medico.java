@@ -1,16 +1,14 @@
 package entidad;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Medico {
     private String nombre;
     private Especialidad especialidad;
-    private ObraSocial obraSocial; // Se agrega la obra social del médico
-    private boolean atiendeParticular;
 
-    public Medico(String nombre, Especialidad especialidad, ObraSocial obraSocial, boolean atiendeParticular) {
+    public Medico(String nombre, Especialidad especialidad) {
         this.nombre = nombre;
         this.especialidad = especialidad;
-        this.obraSocial = obraSocial;
-        this.atiendeParticular = atiendeParticular;
     }
 
     // Getters y setters
@@ -28,21 +26,5 @@ public class Medico {
 
     public void setEspecialidad(Especialidad especialidad) {
         this.especialidad = especialidad;
-    }
-
-    public ObraSocial getObraSocial() {
-        return obraSocial;
-    }
-
-    public void setObraSocial(ObraSocial obraSocial) {
-        this.obraSocial = obraSocial;
-    }
-
-    public boolean isAtiendeParticular() {
-        return atiendeParticular;
-    }
-
-    public void setAtiendeParticular(boolean atiendeParticular) {
-        this.atiendeParticular = atiendeParticular;
     }
 }
