@@ -1,6 +1,6 @@
-import dao.*;
 import entidad.*;
 import service.*;
+import dao.*;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -16,6 +16,7 @@ public class Main {
         GestionTurnoService gestionTurnoService = GestionTurnoService.getInstance();
         AtencionMedicoService atencionMedicoService = AtencionMedicoService.getInstance();
         GestionFarmaciaService gestionFarmaciaService = GestionFarmaciaService.getInstance();
+        Drogueria drogueria = Drogueria.getInstance();
 
         // Crear obras sociales
         ObraSocial obraSocial1 = new ObraSocial("ObraSocial1");
@@ -38,23 +39,22 @@ public class Main {
         Paciente paciente2 = new Paciente("María", obraSocial2);
 
         // Solicitar turnos para los pacientes
-        Turno turno1 = GestionTurnoService.solicitarTurno(paciente1, obraSocialDAO.obtenerMedicosPorObraSocial(obraSocial1).get(0), "2024-05-01");
-        Turno turno2 = GestionTurnoService.solicitarTurno(paciente2, obraSocialDAO.obtenerMedicosPorObraSocial(obraSocial2).get(0), "2024-05-02");
+        Turno turno1 = gestionTurnoService.solicitarTurno(paciente1, obraSocialDAO.obtenerMedicosPorObraSocial(obraSocial1).get(0), "2024-05-01");
+        Turno turno2 = gestionTurnoService.solicitarTurno(paciente2, obraSocialDAO.obtenerMedicosPorObraSocial(obraSocial2).get(0), "2024-05-02");
 
-        // Generar recetas durante los turnos
         List<Medicamento> medicamentosReceta1 = new ArrayList<>();
-        medicamentosReceta1.add(new Medicamento("Medicamento1"));
-        medicamentosReceta1.add(new Medicamento("Medicamento2"));
+        medicamentosReceta1.add(drogueria.solicitarMedicamento("Medicamento1"));
+        medicamentosReceta1.add(drogueria.solicitarMedicamento("Medicamento2"));
         atencionMedicoService.generarReceta(turno1, medicamentosReceta1);
 
         List<Medicamento> medicamentosReceta2 = new ArrayList<>();
-        medicamentosReceta2.add(new Medicamento("Medicamento3"));
-        medicamentosReceta2.add(new Medicamento("Medicamento4"));
+        medicamentosReceta2.add(drogueria.solicitarMedicamento("Medicamento3"));
+        medicamentosReceta2.add(drogueria.solicitarMedicamento("Medicamento4"));
         atencionMedicoService.generarReceta(turno2, medicamentosReceta2);
 
         // Verificar stock de medicamentos en la farmacia
-        Medicamento medicamento1 = new Medicamento("Medicamento1");
-        Medicamento medicamento3 = new Medicamento("Medicamento3");
+        Medicamento medicamento1 = drogueria.solicitarMedicamento("Medicamento1");
+        Medicamento medicamento3 = drogueria.solicitarMedicamento("Medicamento3");
         System.out.println("¿Medicamento1 en stock? " + gestionFarmaciaService.verificarStock(medicamento1));
         System.out.println("¿Medicamento3 en stock? " + gestionFarmaciaService.verificarStock(medicamento3));
 

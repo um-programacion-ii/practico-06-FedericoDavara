@@ -1,6 +1,4 @@
 package entidad;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Medico {
     private String nombre;
@@ -26,5 +24,12 @@ public class Medico {
 
     public void setEspecialidad(Especialidad especialidad) {
         this.especialidad = especialidad;
+    }
+
+    public void entregarReceta(Receta receta) {
+        System.out.println("El médico " + this.nombre + " ha entregado la siguiente receta:");
+        for (Medicamento medicamento : receta.getMedicamentos()) {
+            System.out.println("- " + medicamento.getNombre());
+        }
     }
 }

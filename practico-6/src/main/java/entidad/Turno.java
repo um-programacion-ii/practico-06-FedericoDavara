@@ -1,5 +1,4 @@
 package entidad;
-import java.util.List;
 
 public class Turno {
     private Paciente paciente;
